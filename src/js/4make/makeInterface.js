@@ -22,6 +22,18 @@ function makeInterface()
 
     //-//
 
+    let addressDiv = ce('div');
+    addressDiv.id = 'addressDiv';
+    mainDiv.append(addressDiv);
+
+    //-//
+
+    let lonLatDiv = ce('div');
+    lonLatDiv.id = 'lonLatDiv';
+    mainDiv.append(lonLatDiv);
+
+    //-//
+
     let pressureReadingDiv = ce('div');
     pressureReadingDiv.id = 'pressure-reading-display';
     pressureReadingDiv.textContent = 'Barometer Reading';
@@ -34,7 +46,8 @@ function makeInterface()
     barometerStartBtn.onclick = function()
     {
         //startBarometer(); // experimental
-        getPressureFromInternet();
+        // getPressureFromInternet();
+        getPressureWithLocationData();
     };
     barometerStartBtn.textContent = 'Barometer';
     mainDiv.append(barometerStartBtn);
@@ -125,3 +138,4 @@ function makeInterface()
 // https://github.com/ChristopherTopalian
 // https://github.com/ChristopherAndrewTopalian
 // https://sites.google.com/view/CollegeOfScripting
+
