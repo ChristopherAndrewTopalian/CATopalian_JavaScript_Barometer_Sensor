@@ -15,6 +15,13 @@ function makeInterface()
     
     //-//
 
+    let errorMessageDiv = ce('div');
+    errorMessageDiv.textContent = '';
+    errorMessageDiv.id = 'errorMessageDiv';
+    mainDiv.append(errorMessageDiv);
+
+    //-//
+
     let pressureReadingDiv = ce('div');
     pressureReadingDiv.id = 'pressure-reading-display';
     pressureReadingDiv.textContent = 'Barometer Reading';

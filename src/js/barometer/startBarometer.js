@@ -1,86 +1,69 @@
 // startBarometer.js
 
 let pressureSensor = null;
-
 let pressureDisplay = ge("pressure-reading-display");
 
-// initialize the sensor
 function startBarometer()
 {
-    // check if the browser even knows what a PressureSensor is
-    if ("PressureSensor" in window)
+    // THE PRE-CHECK FAIL
+    if (!("PressureSensor" in window))
     {
-        try
-        {
-            // create the sensor.
-            // frequency: 1 means read it once per second (1 Hz).
-            // Lower frequency = better battery life.
-            pressureSensor = new PressureSensor({ frequency: 1 });
-
-            // define what happens when we get a reading
-            pressureSensor.addEventListener("reading", function()
-            {
-                // the reading is usually in hPa (hectopascals) which is the same as millibars.
-                let pressureValue = pressureSensor.pressure;
-
-                cl("Current Pressure:", pressureValue, "hPa");
-
-                if (pressureDisplay)
-                {
-                    // round it to 2 decimal places for neatness
-                    pressureDisplay.innerText = pressureValue.toFixed(2) + 'hPa';
-                }
-            });
-
-            // define what happens if there's an error
-            pressureSensor.addEventListener("error", function (event)
-            {
-                if (event.error.name === "NotAllowedError")
-                {
-                    console.warn("Barometer permission denied by user or OS.");
-
-                    if (pressureDisplay)
-                    {
-                        pressureDisplay.innerText = "Permission Denied";
-                    }
-                }
-                else if (event.error.name === "NotReadableError")
-                {
-                    console.warn(
-                        "Barometer hardware not available on this device.",);
-
-                    if (pressureDisplay)
-                    {
-                        pressureDisplay.innerText = "No Sensor Found";
-                    }
-                }
-                else
-                {
-                    console.error("Barometer error:", event.error.name);
-                }
-            });
-
-            // start the sensor
-            pressureSensor.start();
-
-            cl("Barometer started...");
-        }
-        catch(err)
-        {
-            console.error(
-                "Could not initialize PressureSensor. Your browser might not support it properly yet.",
-                err,
-            );
-        }
+        ge('errorMessageDiv').textContent = "PressureSensor API not supported by this browser.";
+        cl("PressureSensor API not supported.");
+        if (pressureDisplay) pressureDisplay.innerText = "N/A";
+        return; // Stop here, no point continuing
     }
-    else
-    {
-        console.log("PressureSensor API not supported by this browser.");
 
-        if (pressureDisplay)
+    try
+    {
+        // create the sensor
+        pressureSensor = new PressureSensor({ frequency: 1 });
+
+        // define what happens when we get a reading
+        pressureSensor.addEventListener("reading", function()
         {
-            pressureDisplay.innerText = "Not Supported";
-        }
+            let pressureValue = pressureSensor.pressure;
+            cl("Current Pressure:", pressureValue, "hPa");
+
+            if (pressureDisplay)
+            {
+                pressureDisplay.innerText = pressureValue.toFixed(2) + ' hPa';
+                // Clear error message if it starts working!
+                ge('errorMessageDiv').textContent = ""; 
+            }
+        });
+
+        // THE RUNTIME FAIL (Hardware or Permission issues)
+        pressureSensor.addEventListener("error", function (event)
+        {
+            // By default, assume generic error
+            let msg = "Sensor Error: " + event.error.name;
+
+            if (event.error.name === "NotAllowedError")
+            {
+                msg = "Barometer permission denied.";
+            }
+            else if (event.error.name === "NotReadableError")
+            {
+                msg = "Barometer hardware not found on this device.";
+            }
+
+            ge('errorMessageDiv').textContent = msg;
+            console.warn(msg);
+            
+            if(pressureDisplay) pressureDisplay.innerText = "Error";
+        });
+
+        // start the sensor
+        pressureSensor.start();
+        cl("Barometer started...");
+    }
+    catch(err)
+    {
+        // THE STARTUP FAIL (Code crashed or Security blocked it immediately)
+        let failMsg = "Could not start sensor: " + err.message;
+        ge('errorMessageDiv').textContent = failMsg;
+        console.error(failMsg);
     }
 }
 
