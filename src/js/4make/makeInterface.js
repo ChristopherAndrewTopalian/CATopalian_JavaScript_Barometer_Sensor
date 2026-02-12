@@ -33,7 +33,8 @@ function makeInterface()
     let barometerStartBtn = ce('button');
     barometerStartBtn.onclick = function()
     {
-      startBarometer();
+        //startBarometer(); // experimental
+        getPressureFromInternet();
     };
     barometerStartBtn.textContent = 'Barometer';
     mainDiv.append(barometerStartBtn);
