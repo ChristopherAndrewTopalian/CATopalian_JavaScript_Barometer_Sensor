@@ -4,9 +4,9 @@ function makeTitleOfApp()
 {
     let theTitle = ce('a');
     theTitle.id = 'theTitle';
-    theTitle.href = 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Barometer';
+    theTitle.href = 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Barometer_Sensor';
     theTitle.target = '_blank';
-    theTitle.textContent = 'CATopalian JavaScript Barometer';
+    theTitle.textContent = 'CATopalian JavaScript Barometer Sensor';
     theTitle.style.fontSize = '15px';
     theTitle.style.fontWeight = 'bold';
     theTitle.style.textDecoration = 'none';
