@@ -1,9 +1,11 @@
 # CATopalian JavaScript Barometer Sensor
-A JavaScript application that senses pressure on Cell phones and Tablets that have an Barometer sensor.
+A JavaScript mobile application that senses pressure on Cell phones and Tablets that have an Barometer sensor.
 
 ---
 
 ![001](src/media/textures/screenshots/001.PNG)
+
+Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Barometer_Sensor/CATopalian_JavaScript_Barometer_Sensor.html
 
 ---
 
