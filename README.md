@@ -3,8 +3,6 @@ A JavaScript application that gets lon/lat, address, and barometer reading from 
 
 ---
 
-TESTING TESTING TESTING
-
 ![001](src/media/textures/screenshots/001.PNG)
 
 Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Barometer_Sensor/CATopalian_JavaScript_Barometer_Sensor.html
