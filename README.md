@@ -1,5 +1,5 @@
 # CATopalian JavaScript Barometer Sensor
-A JavaScript application that gets lon/lat, address, and barometer reading from that location
+A JavaScript application that gets lon/lat, address, and barometer reading from your location
 
 ---
 
