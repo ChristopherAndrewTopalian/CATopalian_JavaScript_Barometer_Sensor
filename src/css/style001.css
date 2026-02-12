@@ -1,0 +1,70 @@
+/* style001.css */
+
+body
+{
+    margin: 0px 8px;
+    padding: 20px;
+    background-color: rgb(30, 30, 30);
+    font-family: Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+h1
+{
+    margin-top: 4px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.axisLabel
+{
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(150, 150, 150);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.valueBox
+{
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-family: Arial;
+    font-weight: bold;
+    color: rgb(0, 255, 255);
+}
+
+button
+{
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: rgb(0, 150, 255);
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+button:hover
+{
+    border-color: rgb(0, 255, 255);
+    color: rgb(0, 255, 255);
+}
+
+button:active
+{
+    color: rgb(255, 0, 255);
+    /* transform: translateY(2px); */
+}
+
+/*----*/
+
+/* Dedicated to God the Father */
+/* All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 */
+/* https://github.com/ChristopherTopalian */
+/* https://github.com/ChristopherAndrewTopalian */
+/* https://sites.google.com/view/CollegeOfScripting */
+
