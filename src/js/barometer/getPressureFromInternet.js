@@ -12,9 +12,9 @@ function getPressureFromInternet()
             
             cl("Got location: " + lat.toFixed(2) + ", " + lon.toFixed(2));
 
-            // Ask Open-Meteo for the pressure at this location
+            // ask Open-Meteo for the pressure at this location
             // 'surface_pressure' is the raw reading (like a barometer), 'sealevel_pressure' is adjusted.
-            // For a sensor replacement, surface_pressure is usually what you want.
+            // For a sensor replacement, surface_pressure is usually what we want.
             let url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=surface_pressure`;
             
             fetch(url)
