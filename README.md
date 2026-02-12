@@ -14,7 +14,7 @@ Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Barom
 2. Choose Download ZIP
 3. Save the Zip File
 4. Extract All
-5. Double click the HTML file to start the App - Note: The Barometer only works from https if the cell phone has a Barometer sensor. The motion sensor works only with devices that have an Accelerometer
+5. Double click the HTML file to start the App. note: motion sensor only works on cell phones or tablets that have the motion sensor.
 
 ---
 
